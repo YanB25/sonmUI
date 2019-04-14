@@ -17,7 +17,7 @@ let pgClient = new Client(connectionString);
 app.get('/helloworld', async (req, res) => {
     console.log('get request');
     let query = await pgClient.query(
-        "select id, masterid, dealid, type, status, duration, price from orders;");
+        "select id, masterid, createdts, dealid, type, status, authorid, counterpartyid, duration, price, netflags, identitylevel, blacklist, tag, frozensum creatoridentitylevel, creatorname, creatorcountry from orders");
     console.log(query);
     res.status(200).jsonp({data: query.rows, errno: 0, msg: 'ok'});
 });

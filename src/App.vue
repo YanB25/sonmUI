@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <!-- <img src="./assets/logo.png"> -->
     <div>
       <el-button @click="getorders">get orders</el-button>
     </div>
-    <div> 
+    <!-- <div> 
       <test v-bind:msg="msg"> </test>
-    </div>
+    </div> -->
     <cus-table :tableData="tableData"> </cus-table>
   </div>
 </template>
@@ -45,17 +45,15 @@ export default {
   data() {
     return {
       msg: "hello world",
+      // sample data
       tableData: [
-        {
-          name: "yanbin",
-          age: 18,
-          date: '1998-03-16'
-        },
-        {
-          name: "zyy",
-          age: 19,
-          date: '1998-03-16'
-        }
+        { id: '1',
+       masterid: '0x5c865774723bF00895b3620700998906e58085FE',
+       dealid: '0',
+       type: 1,
+       status: 2,
+       duration: '28800',
+       price: '00000000000000000000000000000000000000000000000000000000000000000000000000000000' }
       ]
     }
   }

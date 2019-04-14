@@ -2,10 +2,7 @@
   <div id="app">
     <img src="./assets/logo.png">
     <div>
-      <el-button @click="startHacking">Start</el-button>
-    </div>
-    <div>
-      <el-button @click="helloworld">click me</el-button>
+      <el-button @click="getorders">get orders</el-button>
     </div>
     <div> 
       <test v-bind:msg="msg"> </test>
@@ -30,7 +27,7 @@ export default {
         duration: 5000
       })
     },
-    helloworld() {
+    getorders() {
       fetch('/api/helloworld')
         .then(res => {
           return res.json();
@@ -47,7 +44,7 @@ export default {
   },
   data() {
     return {
-      msg: "can i change???? !",
+      msg: "hello world",
       tableData: [
         {
           name: "yanbin",

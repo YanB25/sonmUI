@@ -37,7 +37,7 @@ export default {
         })
         .then(myJson => {
           console.log(myJson);
-          tableData = myJson;
+          this.$data.tableData = myJson.data;
         })
     }
   },
@@ -45,20 +45,22 @@ export default {
     'test': Test,
     'cus-table': Table
   },
-  data: {
-    msg: "can i change???? !",
-    tableData: [
-      {
-        name: "yanbin",
-        age: 18,
-        date: '1998-03-16'
-      },
-      {
-        name: "zyy",
-        age: 19,
-        date: '1998-03-16'
-      }
-    ]
+  data() {
+    return {
+      msg: "can i change???? !",
+      tableData: [
+        {
+          name: "yanbin",
+          age: 18,
+          date: '1998-03-16'
+        },
+        {
+          name: "zyy",
+          age: 19,
+          date: '1998-03-16'
+        }
+      ]
+    }
   }
 
 }

@@ -10,11 +10,13 @@
     <div> 
       <test v-bind:msg="msg"> </test>
     </div>
+    <cus-table :tableData="tableData"> </cus-table>
   </div>
 </template>
 
 <script>
 import Test from './components/test.vue'
+import Table from './components/table.vue'
 
 // Vue.use(Test)
 
@@ -39,11 +41,24 @@ export default {
     }
   },
   components: {
-    'test': Test
+    'test': Test,
+    'cus-table': Table
   },
   data() {
     return {
-      msg: "can i change???? !"
+      msg: "can i change???? !",
+      tableData: [
+        {
+          name: "yanbin",
+          age: 18,
+          date: '1998-03-16'
+        },
+        {
+          name: "zyy",
+          age: 19,
+          date: '1998-03-16'
+        }
+      ]
     }
   }
 
@@ -53,6 +68,6 @@ export default {
 <style>
 #app {
   font-family: Helvetica, sans-serif;
-  text-align: center;
+  /* text-align: center; */
 }
 </style>

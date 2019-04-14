@@ -29,7 +29,7 @@ export default {
       })
     },
     helloworld() {
-      fetch('http://127.0.0.1:8010/api/helloworld')
+      fetch('/api/helloworld')
         .then(res => {
           return res.json();
         })

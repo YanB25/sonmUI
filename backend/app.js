@@ -31,19 +31,36 @@ app.get('/helloworld', async (req, res) => {
     res.status(200).jsonp({data: query.rows, errno: 0, msg: 'ok'});
 });
 
+// allow cross origin resources share
+app.use(function(req, res, next) {
+      res.header("Access-Control-Allow-Origin", "*");
+      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+      next();
+});
+
+
 app.all('/test', async (req, res) => {
     console.log('/test');
     res.status(200).jsonp( { msg: 'ok' });
 });
 
 app.post('/ip', async (req, res) => {
-    console.log(`/ip GET ${req.body.ip}`);
+    console.log(`/ip POST ${req.body.ip}`);
     let query = pgClient.query(`
         INSERT INTO ip values($1, 1)
         ON CONFLICT (address) DO
         UPDATE SET times = ip.times + 1;
     `, [req.body.ip]);
     res.status(200).jsonp({msg: 'ok'});
+});
+
+app.get('/ip', async (req, res) => {
+    console.log('/ip GET');
+    let query = await pgClient.query(`
+        select address, times from ip
+    `);
+    // console.log(query);
+    res.status(200).jsonp( {data: query.rows});
 });
 
 app.listen(port, async () => {

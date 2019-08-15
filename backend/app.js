@@ -66,7 +66,7 @@ app.get('/ip', async (req, res) => {
 app.listen(port, async () => {
     await pgClient.connect();
     let query = await pgClient.query(`
-        CREATE TABLE IF NOT EXISTS if (
+        CREATE TABLE IF NOT EXISTS ip (
             address varchar(20) primary key,
             times integer)
     `);

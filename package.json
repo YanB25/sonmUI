@@ -8,9 +8,9 @@
     "build": "rimraf dist && webpack -p --progress --hide-modules"
   },
   "dependencies": {
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.20.1",
     "element-ui": "^2.3.4",
-    "express": "^4.16.4",
+    "express": "^4.18.2",
     "pg": "^7.9.0",
     "vue": "^2.5.16"
   },
